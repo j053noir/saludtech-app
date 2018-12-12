@@ -1,0 +1,20 @@
+@import ".~bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/mixins/_buttons.scss";
+
+$white: #fff;
+$blue: #001166;
+
+.bg-primary {
+  color: $white;
+  background-color: $blue !important;
+}
+
+.btn-primary {
+  @include button-variant($blue,
+  darken($blue,
+  5%))
+}
+
+.btn-outline-primary {
+  @include button-outline-variant($blue)
+}

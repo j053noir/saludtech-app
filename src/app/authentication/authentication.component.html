@@ -1,3 +1,22 @@
-<p>
-  authentication works!
-</p>
+<div class="row login">
+  <div class="col-12">
+    <form (ngSubmit)="onSubmit()" class="form-signin" [formGroup]="signInForm">
+      <h3>Iniciar sesión</h3>
+      <div class="row mb-1">
+        <div class="col-12">
+          <input type="email" class="form-control" formControlName="email" placeholder="Ingrese su email">
+        </div>
+      </div>
+      <div class="row mb-1">
+        <div class="col-12">
+          <input type="password" class="form-control" formControlName="password" placeholder="Ingrese su contraseña">
+        </div>
+      </div>
+      <div class="row mb-1">
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
