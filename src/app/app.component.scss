@@ -4,6 +4,10 @@
 $white: #fff;
 $blue: #001166;
 
+a {
+  cursor: pointer;
+}
+
 .bg-primary {
   color: $white;
   background-color: $blue !important;

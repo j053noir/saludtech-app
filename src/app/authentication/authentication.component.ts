@@ -23,7 +23,7 @@ export class AuthenticationComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', Validators.required)
     });
-    this.signInForm = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   onSubmit() {
@@ -43,7 +43,8 @@ export class AuthenticationComponent implements OnInit {
           this.router.navigate([this.returnUrl]);
         },
         error => {
-          console.log(error);
+          console.log('error', error);
+          alert('usuario o contraseña incorrectos.');
         }
       );
   }

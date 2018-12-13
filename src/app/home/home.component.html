@@ -1,3 +1,71 @@
-<p>
-  home works!
-</p>
+<ngb-carousel *ngIf="images">
+  <ng-template ngbSlide>
+    <img [src]="images[0]" alt="Random first slide">
+    <div class="carousel-caption">
+      <h3>First slide label</h3>
+      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <img [src]="images[1]" alt="Random second slide">
+    <div class="carousel-caption">
+      <h3>Second slide label</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <img [src]="images[2]" alt="Random third slide">
+    <div class="carousel-caption">
+      <h3>Third slide label</h3>
+      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+    </div>
+  </ng-template>
+</ngb-carousel>
+<hr>
+<h2 class="text-center text-primary">Servicios</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let s of services;let i = index">
+      <div class="card mb-4 shadow-sm">
+        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+          alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" [src]="services[i]"
+          data-holder-rendered="true">
+        <div class="card-body">
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+            content. This content is a little bit longer.</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+            </div>
+            <small class="text-muted">9 mins</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<h2 class="text-center text-primary">Medicos</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let m of medics;let i = index">
+      <div class="card mb-4 shadow-sm">
+        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+          alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" [src]="medics[i]"
+          data-holder-rendered="true">
+        <div class="card-body">
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+            content. This content is a little bit longer.</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+            </div>
+            <small class="text-muted">9 mins</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
