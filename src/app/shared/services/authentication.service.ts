@@ -60,4 +60,9 @@ export class AuthenticationService {
     const expiresAt = JSON.parse(expiration);
     return moment(expiresAt);
   }
+
+  registration(model) {
+    return this.http.post(`//${environment.api}/registro`, 
+    { name: model.name, email: model.email, password: model.password });
+  }
 }
