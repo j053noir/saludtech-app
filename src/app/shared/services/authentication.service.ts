@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { shareReplay, tap } from 'rxjs/operators';
 import * as moment from 'moment';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { User } from '../models/user.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -14,7 +13,7 @@ export class AuthenticationService {
   public authenticated: Observable<boolean>;
 
   constructor(private http: HttpClient) {
-    this.authenticatedSubject = new BehaviorSubject<boolean>(localStorage.getItem('expires_at') !== null);
+    this.authenticatedSubject = new BehaviorSubject<boolean>(this.isLoggedIn());
     this.authenticated = this.authenticatedSubject.asObservable();
   }
 
@@ -28,9 +27,9 @@ export class AuthenticationService {
   private setSession(authResult) {
     const expiresAt = moment().add(authResult.expires_in, 'second');
     console.log(expiresAt.valueOf());
-    this.authenticatedSubject.next(authResult.access_token);
     localStorage.setItem('access_token', authResult.access_token);
     localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
+    this.authenticatedSubject.next(this.isLoggedIn());
   }
 
   public get authenticatedValue(): boolean {
@@ -62,7 +61,7 @@ export class AuthenticationService {
   }
 
   registration(model) {
-    return this.http.post(`//${environment.api}/registro`, 
-    { name: model.name, email: model.email, password: model.password });
+    return this.http.post(`//${environment.api}/registro`,
+      { name: model.name, email: model.email, password: model.password });
   }
 }

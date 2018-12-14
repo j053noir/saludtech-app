@@ -29,17 +29,19 @@ export class RegistrationComponent implements OnInit {
       password: this.signUpForm.controls.password.value
     };
 
-    if (!this.signUpForm.valid) {
+    if (!this.signUpForm.valid && this.loading) {
       return;
     }
 
+    this.loading = true;
+
     this.authService.registration(model).subscribe(
       data => {
-        alert("Tu usuario ha sido creado con exito. Ya puedes utilizar la plataforma.")
-        console.log('message', data);
+        alert('Tu usuario ha sido creado con exito. Ya puedes utilizar la plataforma.');
+        this.router.navigate(['/signin']);
       }, error => {
         alert(error);
-        console.log('error', error);
+        this.loading = false;
       }
     );
   }

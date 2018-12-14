@@ -44,7 +44,7 @@
       </div>
       <div class="row mb-1">
         <div class="col-12">
-          <button type="submit" class="btn btn-success btn-block" [disabled]="!signUpForm.valid">Registrar</button>
+          <button type="submit" class="btn btn-success btn-block" [disabled]="!signUpForm.valid">{{ (loading)? 'Cargando...' : 'Registrar' }}</button>
         </div>
       </div>
     </form>

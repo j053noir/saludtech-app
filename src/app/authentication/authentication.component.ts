@@ -12,6 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class AuthenticationComponent implements OnInit {
   signInForm: FormGroup;
   returnUrl: string;
+  loading = false;
 
   constructor(
     private router: Router,
@@ -32,9 +33,11 @@ export class AuthenticationComponent implements OnInit {
       password: this.signInForm.controls.password.value
     };
 
-    if (this.signInForm.invalid) {
+    if (this.signInForm.invalid && this.loading) {
       return;
     }
+
+    this.loading = true;
 
     this.authService.login(model.email, model.password)
       .pipe(first())
@@ -43,7 +46,7 @@ export class AuthenticationComponent implements OnInit {
           this.router.navigate([this.returnUrl]);
         },
         error => {
-          console.log('error', error);
+          this.loading = false;
           alert('usuario o contraseña incorrectos.');
         }
       );

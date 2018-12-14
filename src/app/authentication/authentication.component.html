@@ -14,7 +14,7 @@
       </div>
       <div class="row mb-1">
         <div class="col-12">
-          <button type="submit" class="btn btn-primary btn-block" [disabled]="!signInForm.valid">Iniciar sesión</button>
+          <button type="submit" class="btn btn-primary btn-block" [disabled]="!signInForm.valid">{{ (loading)? 'Cargando...' : 'Iniciar sesión' }}</button>
         </div>
       </div>
       <hr>
