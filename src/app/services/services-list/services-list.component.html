@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row header text-center bg-primary mt-1">
+      <div class="col-12 text-light">
+        <h3>Servicios</h3>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let s of services;let i = index">
+        <div class="card mb-4 shadow-sm">
+          <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+            alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" [src]="s.image"
+            data-holder-rendered="true">
+          <div class="card-body">
+            <h5 class="card-header bg-primary text-light text-right">{{ s.name }}</h5>
+            <p class="card-text">{{ s.descprition }}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary" [routerLink]="['/services/', i]">View</button>
+              </div>
+              <small class="text-muted">{{ s.cost }}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

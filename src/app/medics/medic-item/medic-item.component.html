@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-4 mt-1">
+      <img [src]="medic.image" alt="Imagen de perfil" class="img-fluid">
+    </div>
+    <div class="col-6 col-lg-4 d-flex justify-content-center mt-1">
+      <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
+    </div>
+    <div class="col-6 col-lg-4 mt-1">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Agendar una cita</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Elija la fecha de la cita</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+            card's content.</p>
+          <strong>{{ medic.cost }}</strong>
+          <button class="btn btn-success float-right">Ir a Pagos</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-1">
+    <div class="col-12">
+      <div class="bg-success text-light p-1">
+        <h2>{{ medic.name }} <br><small>{{ medic.specialty }}</small></h2>
+      </div>
+      <h3>Biografía</h3>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur ac urna at convallis. Fusce
+        aliquet
+        elementum massa, eget finibus elit cursus interdum. Maecenas laoreet commodo lacinia. Donec magna est,
+        sollicitudin
+        ac fringilla vitae, malesuada at libero. Proin scelerisque lectus nec lobortis rhoncus. Aenean vel enim
+        turpis.
+        Vestibulum diam libero, efficitur id ipsum fringilla, commodo maximus dui. Integer molestie nunc vel
+        facilisis
+        tincidunt. Integer pretium nisl condimentum, feugiat nulla quis, laoreet enim. Phasellus maximus ipsum sit
+        amet
+        lacinia consectetur. Maecenas sit amet risus turpis. Maecenas sit amet fermentum sem.
+
+        Suspendisse vel lorem et sem blandit vestibulum. Mauris risus nisi, hendrerit at fermentum vitae, pharetra
+        nec
+        enim.
+        In hac habitasse platea dictumst. Sed viverra magna nec dui congue viverra. Suspendisse eu porttitor ligula.
+        Donec
+        convallis convallis malesuada. Sed laoreet eu odio at pretium. Aliquam turpis tortor, fermentum eget lorem
+        ac,
+        gravida dictum dui. Donec sagittis diam et nisl consequat pharetra. Donec rhoncus ex est, vitae iaculis nunc
+        vulputate quis. Fusce ut libero nulla. Nunc venenatis non turpis at porttitor. Maecenas commodo luctus augue.
+        Quisque
+        vulputate ligula id libero condimentum, ac ultricies lectus consectetur. Nulla ultrices cursus nisl. Aliquam
+        erat
+        volutpat.
+      </p>
+    </div>
+  </div>
+</div>

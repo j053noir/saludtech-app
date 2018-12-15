@@ -1,0 +1,52 @@
+<div class="row login">
+  <div class="col-12">
+    <form (ngSubmit)="onSubmit()" class="form-signin" [formGroup]="signUpForm">
+      <h3>Registro</h3>
+      <div class="row mb-1">
+        <div class="col-12">
+          <input type="text" class="form-control" formControlName="name" placeholder="Ingrese su nombre">
+          <p *ngIf="signUpForm.controls.name.errors?.required && signUpForm.controls.name.touched">
+            <ngb-alert [dismissible]="false">
+              El nombre es obligatorio.
+            </ngb-alert>
+          </p>
+        </div>
+      </div>
+      <div class="row mb-1">
+        <div class="col-12">
+          <input type="email" class="form-control" formControlName="email" placeholder="Ingrese su email">
+          <p *ngIf="signUpForm.controls.email.errors?.required && signUpForm.controls.email.touched">
+            <ngb-alert [dismissible]="false">
+              El email es obligatorio.
+            </ngb-alert>
+          </p>
+          <p *ngIf="signUpForm.controls.email.errors?.email && signUpForm.controls.email.touched">
+            <ngb-alert [dismissible]="false">
+              El email no es valido. Debe tener un formato 'email@prueba.com'.
+            </ngb-alert>
+          </p>
+        </div>
+      </div>
+      <div class="row mb-1">
+        <div class="col-12">
+          <input type="password" class="form-control" minlength="3" formControlName="password" placeholder="Ingrese su contraseña">
+          <p *ngIf="signUpForm.controls.password.errors?.required && signUpForm.controls.password.touched">
+            <ngb-alert [dismissible]="false">
+              La contraseña es obligatoria.
+            </ngb-alert>
+          </p>
+          <p *ngIf="signUpForm.controls.password.errors?.minlength">
+            <ngb-alert [dismissible]="false">
+              La contraseña debe tener más de 3 caracteres.
+            </ngb-alert>
+          </p>
+        </div>
+      </div>
+      <div class="row mb-1">
+        <div class="col-12">
+          <button type="submit" class="btn btn-success btn-block" [disabled]="!signUpForm.valid">{{ (loading)? 'Cargando...' : 'Registrar' }}</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

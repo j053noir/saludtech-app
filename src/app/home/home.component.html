@@ -1,0 +1,72 @@
+<ngb-carousel *ngIf="images">
+  <ng-template ngbSlide>
+    <img [src]="images[0]" alt="Random first slide" class="banner img-fluid">
+    <div class="carousel-caption">
+      <h2>Examenes de laboratorio</h2>
+      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <img [src]="images[1]" alt="Random second slide" class="banner img-fluid">
+    <div class="carousel-caption">
+        <img src="/assets/images/logo porto azul.png" class="logo p-2 img-fluid" alt="Clinica Porto Azul">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <img [src]="images[2]" alt="Random third slide" class="banner img-fluid">
+    <div class="carousel-caption">
+        <img src="/assets/images/logo-hun-actualizado.png" class="img-fluid" alt="Hospital Universidad del Norte">
+      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+    </div>
+  </ng-template>
+</ngb-carousel>
+<hr>
+<div class="container">
+  <div class="row header text-center bg-primary">
+    <div class="col-12 text-light">
+      <h3>Servicios</h3>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let s of services;let i = index">
+      <div class="card mb-4 shadow-sm">
+        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+          alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" [src]="s.image"
+          data-holder-rendered="true">
+        <div class="card-body">
+          <h5 class="card-header bg-primary text-light text-right">{{ s.name }}</h5>
+          <p class="card-text">{{ s.descprition }}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-secondary" [routerLink]="['/services/', i]">Ver</button>
+            </div>
+            <small class="text-muted">{{ s.cost }}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<div class="container">
+  <div class="row header text-center bg-success">
+    <div class="col-12 text-light">
+      <h3>Agentes de la Salud</h3>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let m of medics;let i = index">
+      <div class="card mb-4 shadow-sm" [routerLink]="['/medics/', i]">
+        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+          alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" [src]="m.image"
+          data-holder-rendered="true">
+        <div class="card-body">
+          <h5 class="card-header bg-success text-light text-right">{{ m.name }}<br><small>{{ m.specialty }}</small></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
